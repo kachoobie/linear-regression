@@ -7,11 +7,6 @@
 #   3) Calculate p-value for R^2
 #
 
-# import utility as u
-
-# util = u.Utility()
-# data = util.read_data("./sample_data/sample.csv")
-
 class LinReg:
 
     def __init__(self, data) -> None:
@@ -20,6 +15,16 @@ class LinReg:
         self.intercept = 0
 
     
+    def set_slope_initial(self, slope):
+        """Sets the initial slope of the regression line."""
+        self.slope = slope
+
+    
+    def set_intercept_initial(self, intercept):
+        """Sets the initial y-intercept of the regression line."""
+        self.intercept = intercept
+
+
     def calculate_cost(self) -> float:
         """Determines the output value of the cost function. The cost function 
         is the mean of squares of the differences between the observed and
