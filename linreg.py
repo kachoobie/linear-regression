@@ -80,6 +80,7 @@ class LinReg:
     
 
     def __update_slope_and_intercept(self, alpha=0.05) -> None:
+        """Updates the slope for one epoch of gradient descent."""
 
         slope_deriv = self.__calculate_slope_derivative()
         intercept_deriv = self.__calculate_intercept_derivative()
@@ -89,12 +90,15 @@ class LinReg:
     
 
     def __perform_gradient_descent(self, epochs=1000, alpha=0.05) -> None:
+        """Performs gradient descent for the specified number of epochs and
+        learning rate, alpha."""
 
         for i in range(epochs):
             self.__update_slope_and_intercept(alpha)
     
 
     def perform_linear_regression(self, epochs=1000, alpha=0.05) -> tuple:
+        """Public-facing class for performing linear regression."""
 
         self.__perform_gradient_descent(epochs, alpha)
         return self.slope, self.intercept
