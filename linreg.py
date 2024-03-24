@@ -7,10 +7,10 @@
 #   3) Calculate p-value for R^2
 #
 
-import utility as u
+# import utility as u
 
-util = u.Utility()
-data = util.read_data("./sample_data/sample.csv")
+# util = u.Utility()
+# data = util.read_data("./sample_data/sample.csv")
 
 class LinReg:
 
@@ -45,7 +45,7 @@ class LinReg:
 
         sum_of_differences_times_x = 0
 
-        for datum in data:
+        for datum in self.data:
 
             observed = datum[1]
             expected = datum[0] * self.slope + self.intercept
@@ -66,7 +66,7 @@ class LinReg:
 
         sum_of_differences = 0
 
-        for datum in data:
+        for datum in self.data:
 
             observed = datum[1]
             expected = datum[0] * self.slope + self.intercept
@@ -86,8 +86,6 @@ class LinReg:
 
         self.slope = self.slope - alpha * slope_deriv
         self.intercept = self.intercept - alpha * intercept_deriv
-
-        print(self.slope, self.intercept, slope_deriv, intercept_deriv)
     
 
     def __perform_gradient_descent(self, epochs=1000, alpha=0.05) -> None:
@@ -101,12 +99,4 @@ class LinReg:
         self.__perform_gradient_descent(epochs, alpha)
         return self.slope, self.intercept
 
-
-# --------------------
-# Part 1
-# --------------------
-
-# Our initial regression line can have a random slope and 
-# y-intercept. For simplicity, we set the slope to 0 and the
-# intercept to the averave y-value of our observed data.
 

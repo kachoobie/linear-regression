@@ -5,11 +5,11 @@ import linreg as lr
 def main():
 
     u = util.Utility()
-    data = u.read_data("./sample_data/student_scores.csv")
+    data = u.read_data("./sample_data/data.csv")
 
     linear_regression = lr.LinReg(data)
-    slope, intercept = linear_regression.perform_linear_regression(1000, 0.01)
-    print(slope, intercept)
+    slope, intercept = linear_regression.perform_linear_regression(5000, 0.0001)
+
 
     u.plot_points(data, slope, intercept)
 
